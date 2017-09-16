@@ -1,6 +1,4 @@
 import java.util.Date;
-import java.io.*; 
-import java.text.*;
 
 /**
  * A fix-sized array of students
@@ -14,7 +12,7 @@ import java.text.*;
  *
  */
 public class StudentGroup implements StudentArrayOperation {
-                Scanner sc=new Scanner(System.in);
+
 	private Student[] students;
 	
 	/**
@@ -26,107 +24,184 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student[] getStudents() throws IleegalArgumentException{
-		for(i=0;i<students.length;i++)
-		{
-                                         if(students[i]!=NULL)
-                                                     return students[i];
-                                           else 
-                                              return NULL;
+	public Student[] getStudents() {
+		// Add your implementation here
+		if(students==null){
+			throw new IllegalArgumentException();
+			
 		}
-		return null;
-	}
-
-	@Override
-	public void setStudents(Student[] students) throws IllegalArgumentException {
-		for(i=0;i<students.length;i++)
-		{
-		   SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-		   students[i].id=sc.nextInt();
-                                   students[i].fullName=sc.next();
-		   Strintg str=sc.next();
-                                   students[i].birthDate=sdf.parse(str);
-		   students[i].avgMark=sc.nextDouble();
- 		}
-                 
+		else{
+			
+					return this.students;
+		}
 		
 	}
 
 	@Override
-	public Student getStudent(int index) throws IllegalArgumentException{
-		if(index>=0 && index<students.length)
-                                             return students[index];
-                               else
-		return null;
+	public void setStudents(Student[] students) {
+		// Add your implementation here
+		this.students=students;
+		
+		
 	}
 
 	@Override
-	public void setStudent(Student student, int index) throws IllegalArgumentException{
-                               if(student!=NULL)
-                                 students[index]=student;
-                            else 
-                                return NULL;
+	public Student getStudent(int index) {
+		// Add your implementation here
+				return this.students[index];
+	}
+
+	@Override
+	public void setStudent(Student student, int index) {
+		// Add your implementation here
 		
+		this.students[index]=student;
 	}
 
 	@Override
 	public void addFirst(Student student) {
-		LinkedList ll=LinkedList(Student students);
-		ll.addFirst(student);
+		// Add your implementation here
+		int i=this.students.length;
+		for(int j=i;j>0;j--)
+		this.students[j]=this.students[j-1];
+		this.students[0]=student;
+		this.students[i+1]=null;
+		
 	}
 
 	@Override
 	public void addLast(Student student) {
-		LinkedList ll=LinkedList(Student students);
-		ll.addLast(student);
+		// Add your implementation here
+		int i=this.students.length;
+		this.students[i]=student;
+		this.students[i+1]=null;	
+		
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		LinkedList ll=LinkedList(Student students);
-		ll.add(index,student);
+		// Add your implementation here
+		
+		int i=this.students.length;
+		for(int j=i;j>index;j--)
+		this.students[j]=this.students[j-1];
+		this.students[index]=student;
+		this.students[i+1]=null;
+		
 	}
 
 	@Override
 	public void remove(int index) {
-		LinkedList ll=LinkedList(Student students);
-		ll.remove(student[index]);
+		// Add your implementation here
+		
+		int i=this.students.length;
+		for(int j= index;j<i;j++)
+		this.students[j]=this.students[j+1];
+		this.students[i+1]=null;
+		
 	}
 
 	@Override
 	public void remove(Student student) {
-		LinkedList ll=LinkedList(Student students);
-		ll.remove(student);
+		// Add your implementation here
+				int i=this.students.length;
+		int index=0;
+             for(int j=0;j<i;j++)
+		if(this.students[j].equals(student))
+		{index=j;
+		break;
+                }
+		for(int j=index;j<i;j++)
+		this.students[j]=this.students[j+1];
+		this.students[i+1]=null;
+		
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
+		// Add your implementation here
+		
+		int i=this.students.length;
+		
+		this.students[index]=null;
 		
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+				int i=this.students.length;
+		int index=0;
+        for(int j=0;j<i;j++)
+		if((this.students[j]).equals(student))
+		{
+			index=j;
+			break;
+                }
+		this.students[index]=null;
+		
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		
+		int j=this.students.length;
+		for(int i=0; i<= j-index;i++)
+		this.students[i]=this.students[i+index+1];
+		this.students[j+1]=null;
+		
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		
+		int i=this.students.length;
+		int index=0;
+        for(int j=0;j<i;j++)
+		if((this.students[j]).equals(student))
+		{
+			index=j;
+			break;
+                }
+		int j=this.students.length;
+		for(i=0;i<=j-index;i++)
+		this.students[i]=this.students[i+index+1];
+		this.students[i+1]=null;
+		
 	}
 
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		/*int n=this.students.length;
+		for(int i=0;i<n-1;i++)
+			for(int j=0;j<n-i-1;j++)
+				if((this.students[j]).isGreaterThan(this.students[j+1]))
+				{
+                                   Student student= new Student();
+				    student=this.students[i];
+				    this.students[i]=this.students[j];
+		    		    this.students[j]=student;	
+                                 }*/
+		
+		
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
+		/*int n=this.students.length;
+		for(int i=0;i<n-1;i++){
+			
+			if(this.students[i].birthDate==date){
+				
+				return students[i];
+				break;
+			}
+			
+		}*/
 		return null;
 	}
 
@@ -163,6 +238,13 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
-		return null;
+			    int i=this.students.length;
+		int index1=0;
+             for(int j=0;j<i;j++)
+		if((this.students[j]).equals(student))
+		{index1=j;
+		break;
+                }
+        	return this.students[index1+1];
 	}
 }
