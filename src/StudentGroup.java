@@ -54,7 +54,7 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		if(index < 0 || index >= students.length) throw new IllegalArgumentException();
 		else {
-			students[index] = student;
+		students[index] = student;
 		}
 	}
 	
@@ -64,11 +64,11 @@ public class StudentGroup implements StudentArrayOperation {
 		//Still to be Reviewed
 		if (student == null ) throw new IllegalArgumentException();
 		else {
-			ArrayList <Student>arr = new ArrayList<Student>();
+		ArrayList <Student>arr = new ArrayList<Student>();
 			arr = (ArrayList<Student>) Arrays.asList(students);
-			arr.add(0, student);
-			students = null;
-			students = (Student[]) arr.toArray();
+		arr.add(0, student);
+		students = null;
+		students = (Student[]) arr.toArray();
 			
 			
 		}
@@ -79,12 +79,12 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		//Still to be Reviewed
 		if (student == null ) throw new IllegalArgumentException();
-		else {
+	else {
 			ArrayList <Student>arr = new ArrayList<Student>();
-			arr = (ArrayList<Student>) Arrays.asList(students);
-			arr.add(students.length, student);
+		arr = (ArrayList<Student>) Arrays.asList(students);
+		arr.add(students.length, student);
 			students = null;
-			students = (Student[]) arr.toArray();
+		students = (Student[]) arr.toArray();
 		}
 		
 	}
@@ -137,16 +137,16 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		if (date == null) throw new IllegalArgumentException();
 		else {
-			Student []st = new Student[students.length];
+		Student []st = new Student[students.length];
 			int temp =0;
-			for(int i=0;i<students.length;i++)
+		for(int i=0;i<students.length;i++)
 			if(students[i].getBirthDate().compareTo(date) == 0) {
 				st[temp] = students[i];
-				temp++;
+			temp++;
 			}
 			Student []ts = new Student[temp];
 			
-			for(int j=0;j<temp;j++) {
+		for(int j=0;j<temp;j++) {
 				ts[j] = st[j];
 			}
 			return ts;
@@ -183,29 +183,29 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
 		double e = 0;
-		for(int i=0;i<students.length;i++) {
+	for(int i=0;i<students.length;i++) {
 			
 			if(students[i].getAvgMark() > e) {
 				e = students[i].getAvgMark();
 			}
 		}
 		Student []st = new Student[students.length];
-		int temp=0;
+	int temp=0;
 		for(int i=0;i<students.length;i++) {
-			if(e == students[i].getAvgMark()) {st[temp] = students[i]; temp++;}
+		if(e == students[i].getAvgMark()) {st[temp] = students[i]; temp++;}
 		}
 		Student []ts = new Student[temp];
-		for(int i=0;i<temp;i++) {
+	for(int i=0;i<temp;i++) {
 			ts[i] = st[i];
 		}
-		return ts;
+	return ts;
 	}
 
 	@Override
 	public Student getNextStudent(Student student) {
 		
 		// Add your implementation here
-		if (student == null) throw new IllegalArgumentException();
+	if (student == null) throw new IllegalArgumentException();
 		else
 		for(int i=0;i<students.length;i++) {
 			if(student.getId() == students[i].getId()) return students[i+1];
