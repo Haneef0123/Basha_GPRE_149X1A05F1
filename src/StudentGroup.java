@@ -190,12 +190,12 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 		}
 		Student []st = new Student[students.length];
-		int count=0;
+		int temp=0;
 		for(int i=0;i<students.length;i++) {
-			if(e == students[i].getAvgMark()) {st[count] = students[i]; count++;}
+			if(e == students[i].getAvgMark()) {st[temp] = students[i]; temp++;}
 		}
-		Student []ts = new Student[count];
-		for(int i=0;i<count;i++) {
+		Student []ts = new Student[temp];
+		for(int i=0;i<temp;i++) {
 			ts[i] = st[i];
 		}
 		return ts;
