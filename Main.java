@@ -7,10 +7,10 @@ public class Main {
 		//You may test that your code works find here
 		//Please check that your code works and has no 
 		//compilation problems before to submit
-		Student st = new Student(01,"Harikrihna",new Date(1996,01,06),63.568);
-		Student st2 = new Student(02,"Harikrihna",new Date(1996,01,06),63.568);
-		Student st3 = new Student(03,"Harikrihna",new Date(1996,01,06),63.568);
-		Student st4 = new Student(04,"Harikrihna",new Date(1996,01,06),63.568);
+		Student a = new Student(01,"Haneef",new Date(1996,05,08),63.568);
+		Student b = new Student(02,"Haneef",new Date(1996,05,08),63.568);
+		Student c = new Student(03,"Haneef",new Date(1996,05,08),63.568);
+		Student d = new Student(04,"Haneef",new Date(1996,05,08),63.568);
 		
 		
 	}
