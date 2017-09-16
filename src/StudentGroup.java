@@ -1,4 +1,6 @@
 import java.util.Date;
+import java.io.*; 
+import java.text.*;
 
 /**
  * A fix-sized array of students
@@ -12,7 +14,7 @@ import java.util.Date;
  *
  */
 public class StudentGroup implements StudentArrayOperation {
-
+                Scanner sc=new Scanner(System.in);
 	private Student[] students;
 	
 	/**
@@ -24,55 +26,82 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student[] getStudents() {
-		// Add your implementation here
+	public Student[] getStudents() throws IleegalArgumentException{
+		for(i=0;i<students.length;i++)
+		{
+                                         if(students[i]!=NULL)
+                                                     return students[i];
+                                           else 
+                                              return NULL;
+		}
 		return null;
 	}
 
 	@Override
-	public void setStudents(Student[] students) {
-		// Add your implementation here
+	public void setStudents(Student[] students) throws IllegalArgumentException {
+		for(i=0;i<students.length;i++)
+		{
+		   SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+		   students[i].id=sc.nextInt();
+                                   students[i].fullName=sc.next();
+		   Strintg str=sc.next();
+                                   students[i].birthDate=sdf.parse(str);
+		   students[i].avgMark=sc.nextDouble();
+ 		}
+                 
+		
 	}
 
 	@Override
-	public Student getStudent(int index) {
-		// Add your implementation here
+	public Student getStudent(int index) throws IllegalArgumentException{
+		if(index>=0 && index<students.length)
+                                             return students[index];
+                               else
 		return null;
 	}
 
 	@Override
-	public void setStudent(Student student, int index) {
-		// Add your implementation here
+	public void setStudent(Student student, int index) throws IllegalArgumentException{
+                               if(student!=NULL)
+                                 students[index]=student;
+                            else 
+                                return NULL;
+		
 	}
 
 	@Override
 	public void addFirst(Student student) {
-		// Add your implementation here
+		LinkedList ll=LinkedList(Student students);
+		ll.addFirst(student);
 	}
 
 	@Override
 	public void addLast(Student student) {
-		// Add your implementation here
+		LinkedList ll=LinkedList(Student students);
+		ll.addLast(student);
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		// Add your implementation here
+		LinkedList ll=LinkedList(Student students);
+		ll.add(index,student);
 	}
 
 	@Override
 	public void remove(int index) {
-		// Add your implementation here
+		LinkedList ll=LinkedList(Student students);
+		ll.remove(student[index]);
 	}
 
 	@Override
 	public void remove(Student student) {
-		// Add your implementation here
+		LinkedList ll=LinkedList(Student students);
+		ll.remove(student);
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
-		// Add your implementation here
+		
 	}
 
 	@Override
