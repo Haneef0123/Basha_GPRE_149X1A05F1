@@ -70,17 +70,7 @@ public class StudentGroup implements StudentArrayOperation {
 			students = null;
 			students = (Student[]) arr.toArray();
 			
-			/*
-			Student []st = new Student[students.length+1];
-			st[0] = student;
-			for(int i=1;i<st.length;i++) {
-				st[i] = students[i-1];
-			}
-			students  = null;
-			Student []students = new Student[st.length];
-			for(int i=0;i<st.length;i++) {
-				students[i] = st[i];
-			}*/
+			
 		}
 	}
 
@@ -185,12 +175,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
-		/*Student st[] = new Student[students.length];
-		int count=0;
-		for(int i=0;i<students.length;i++) if(students[i].getBirthDate()getClass().getAge() == age) {
-			st[count] = students[i];
-			count++;
-		}*/
+		
 		return null;
 	}
 
@@ -218,7 +203,7 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getNextStudent(Student student) {
-		//Correct
+		
 		// Add your implementation here
 		if (student == null) throw new IllegalArgumentException();
 		else
