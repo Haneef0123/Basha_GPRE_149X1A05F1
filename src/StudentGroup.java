@@ -64,11 +64,11 @@ public class StudentGroup implements StudentArrayOperation {
 		//Still to be Reviewed
 		if (student == null ) throw new IllegalArgumentException();
 		else {
-			ArrayList <Student>at = new ArrayList<Student>();
-			at = (ArrayList<Student>) Arrays.asList(students);
-			at.add(0, student);
+			ArrayList <Student>arr = new ArrayList<Student>();
+			arr = (ArrayList<Student>) Arrays.asList(students);
+			arr.add(0, student);
 			students = null;
-			students = (Student[]) at.toArray();
+			students = (Student[]) arr.toArray();
 			
 			/*
 			Student []st = new Student[students.length+1];
@@ -90,11 +90,11 @@ public class StudentGroup implements StudentArrayOperation {
 		//Still to be Reviewed
 		if (student == null ) throw new IllegalArgumentException();
 		else {
-			ArrayList <Student>at = new ArrayList<Student>();
-			at = (ArrayList<Student>) Arrays.asList(students);
-			at.add(students.length, student);
+			ArrayList <Student>arr = new ArrayList<Student>();
+			arr = (ArrayList<Student>) Arrays.asList(students);
+			arr.add(students.length, student);
 			students = null;
-			students = (Student[]) at.toArray();
+			students = (Student[]) arr.toArray();
 		}
 		
 	}
@@ -148,16 +148,16 @@ public class StudentGroup implements StudentArrayOperation {
 		if (date == null) throw new IllegalArgumentException();
 		else {
 			Student []st = new Student[students.length];
-			int count =0;
+			int temp =0;
 			for(int i=0;i<students.length;i++)
 			if(students[i].getBirthDate().compareTo(date) == 0) {
-				st[count] = students[i];
-				count++;
+				st[temp] = students[i];
+				temp++;
 			}
-			Student []ts = new Student[count];
+			Student []ts = new Student[temp];
 			
-			for(int i=0;i<count;i++) {
-				ts[i] = st[i];
+			for(int j=0;j<temp;j++) {
+				ts[j] = st[j];
 			}
 			return ts;
 		}
@@ -197,17 +197,17 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		double d = 0;
+		double e = 0;
 		for(int i=0;i<students.length;i++) {
 			
-			if(students[i].getAvgMark() > d) {
-				d = students[i].getAvgMark();
+			if(students[i].getAvgMark() > e) {
+				e = students[i].getAvgMark();
 			}
 		}
 		Student []st = new Student[students.length];
 		int count=0;
 		for(int i=0;i<students.length;i++) {
-			if(d == students[i].getAvgMark()) {st[count] = students[i]; count++;}
+			if(e == students[i].getAvgMark()) {st[count] = students[i]; count++;}
 		}
 		Student []ts = new Student[count];
 		for(int i=0;i<count;i++) {
