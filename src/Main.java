@@ -1,12 +1,11 @@
 public class Main {
 
 	public static void main(String[] args) {
-		 Scanner g=new Scanner(System.in);
-		 StudentGroup sg=new StudentGroup(g.nextInt());
-                                 sg.getStudents();
-		 sg.setStudents();
-		 sg.getStudent(3);
-		 
+		
+		//You may test that your code works find here
+		//Please check that your code works and has no 
+		//compilation problems before to submit
+		
 	}
 
 }
