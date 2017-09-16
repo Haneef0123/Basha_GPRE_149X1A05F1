@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -28,140 +25,256 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getStudents() {
-		// Add your implementation here
-		//Correct
-		return students;
+		this.students = new Student[length];
+		if (students == null) {
+        throw new IllegalArgumentException("students is null");
+    }
+	else
+		return null;
+		
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
-		// Add your implementation here
-		if (students == null) { 
-			throw new IllegalArgumentException();
-		}
-		else this.students = students;
+	
+			if(index<0 || index>=students.length){
+			throw new IllegalArgumentException("bad index");
+     }
 	}
-
+	
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
-		if(index < 0 || index >= students.length) throw new IllegalArgumentException();
-		else return students[index];
+		if(index<0 || index>=students.length)
+		{
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		}
+		return null;
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
-		if(index < 0 || index >= students.length) throw new IllegalArgumentException();
-		else {
-			students[index] = student;
-		}
-	}
-	
-	@Override
-	public void addFirst(Student student) {
-		// Add your implementation here
-		//Still to be Reviewed
-		if (student == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>at = new ArrayList<Student>();
-			at = (ArrayList<Student>) Arrays.asList(students);
-			at.add(0, student);
-			students = null;
-			students = (Student[]) at.toArray();
-			
-			/*
-			Student []st = new Student[students.length+1];
-			st[0] = student;
-			for(int i=1;i<st.length;i++) {
-				st[i] = students[i-1];
-			}
-			students  = null;
-			Student []students = new Student[st.length];
-			for(int i=0;i<st.length;i++) {
-				students[i] = st[i];
-			}*/
+		if(student==null || index<0 || index>=students.length)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else
+		{
+		students[index]=student;	
 		}
 	}
 
 	@Override
-	public void addLast(Student student) {
-		// Add your implementation here
-		//Still to be Reviewed
-		if (student == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>at = new ArrayList<Student>();
-			at = (ArrayList<Student>) Arrays.asList(students);
-			at.add(students.length, student);
-			students = null;
-			students = (Student[]) at.toArray();
+	public void addFirst(Student student) {
+		if(student==null)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else
+		{
+			Student[] abc=new Student[students.length+1];
+			abc[0]=student;
+			for(int i=1;i<students.length;i++)
+				abc[i]=students[i-1];
+			students=new Student[abc.length];
+			for(int i=0;i<abc.length;i++)
+				students[i]=abc[i];
 		}
-		
+			
+		// Add your implementation here
+	}
+
+	@Override
+	public void addLast(Student student) {
+		if(student==null)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else
+		{
+			Student[] abc=new Student[students.length+1];
+			for(int i=0;i<students.length;i++)
+				abc[i]=student[abc.length];
+			for(int i=0;i<abc.length;i++)
+				students[i]=abc[i];
+		}
+		// Add your implementation here
 	}
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
-		
+		if(student == null || index<0 || index>=students.length)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else{
+			Student[] abc=new Student[students.length+1];
+			for(int i=0;i<index;i++)
+				abc[i]=students[i]);
+			abc[index]=student;
+			for(int i=index+1;i<students.length+1;i++)
+				abc[i]=students[i-1];
+			students=new Student[abc.length];
+			for(int i=0;i<abc.length;i++)
+				students[i]=abc[i];
+		}
 		
 	}
 
 	@Override
 	public void remove(int index) {
+		if(index<0 || index>=students.length)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else{
+			Student[] abc=new Student[students.length-1];
+			for(int i=0;i<index;i++)
+				abc[i]=students[i]);
+			for(int i=index;i<students.length-1;i++)
+				abc[i]=students[i+1];
+			students=new Student[abc.length];
+			for(int i=0;i<abc.length;i++)
+				students[i]=abc[i];
+		}
 		// Add your implementation here
 	}
 
 	@Override
 	public void remove(Student student) {
+		Student x; boolean flag=flag;
+		int j;
+		if(Student == null)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else{
+			for(int i=0;i<students.length;i++)
+			{
+				if(students[i]==student)
+				{
+					flag=true;
+					j=1;
+					break;
+				}
+			}
+			if(flag==true)
+			{
+				int index=j;
+				Student[] abc=new Student[students.length-1];
+			for(int i=0;i<index;i++)
+				abc[i]=students[i]);
+			for(int i=index;i<students.length-1;i++)
+				abc[i]=students[i+1];
+			students=new Student[abc.length];
+			for(int i=0;i<abc.length;i++)
+				students[i]=abc[i];
+			}
+			else{
+				throw new IllegalArgumentException("students not exists");
+			}
 		// Add your implementation here
+	}
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
+		if(index<0 || index>=students.length)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else{
+			Student[] abc=new Student[index+1];
+			for(int i=0;i<index;i++)
+				abc[i]=students[i]);
+			Students=new Students[abc.length];
+			for(int i=0;i<abc.length;i++)
+				students[i]=abc[i];
+		}
 		// Add your implementation here
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		if(student == null)
+			throw new IllegalArgumentException("threw an illegal argument exception");
+		else{
+			Student[] abc=new Student[students.length+1];
+			int j;
+			for(int i=0;i<students.length;i++)
+			{
+				if(students[i]==student)
+				{
+					j=i;
+					break;
+				}
+			}
+			Student[] abc=new Student[j+1];
+			for(int i=0;i<=j;i++)
+		students[i]=abc[i];
 	}
+	}
+	
 
 	@Override
 	public void removeToIndex(int index) {
+		Student[] abc=new Student[index];
+		for(int i=0;i<index;i++)
+		{
+			abc[i]=students[i];
+		}
+		students=new Student[abc.length];
+		for(int i=0;i<abc.length;i++)
+			student[i]=abc[i];
 		// Add your implementation here
 	}
 
 	@Override
 	public void removeToElement(Student student) {
+		int j;
+		for(int i=0;i<students.length;i++)
+		{
+			if(students[i]==student)
+			{
+				j=1;
+				break;
+			}
+		}
+		Student[] abc=new Student[j];
+		for(int i=0;i<abc.length;i++)
+			student[i]=abc[i];
+		
 		// Add your implementation here
 	}
 
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
-		Arrays.sort(students);
+		int c,d,n=students.length;
+		student swap;
+		for(c=0;c<(n-1);c++)
+		{
+			for(d=0;d<n-c-1;d++)
+			{
+				if(students[d]>students[d+1])
+				{
+					swap=students[d];
+					students[d]=students[d+1];
+					students[d+1]=swap;
+				}
+			}
+		}
+					
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		if (date == null) throw new IllegalArgumentException();
-		else {
-			Student []st = new Student[students.length];
-			int count =0;
-			for(int i=0;i<students.length;i++)
-			if(students[i].getBirthDate().compareTo(date) == 0) {
-				st[count] = students[i];
+		int count=0,x=-1;
+		for(int i=0;i<students.length;i++)
+			if(students[i].birthDate<=date)
 				count++;
+			Student[] abc=new Student[count];
+			for(int i=0;i<students.length;i++)
+			{
+				if(students[i].birthDate<=date)
+					abc[x+1]=students[i];
 			}
-			Student []ts = new Student[count];
-			
-			for(int i=0;i<count;i++) {
-				ts[i] = st[i];
+			students=new Student[abc.length];
+			for(int i=0;i<abc.length;i++)
+			{
+				students[i]=abc[i];
 			}
-			return ts;
-		}
-		
+		return null;
 	}
 
 	@Override
@@ -185,46 +298,18 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
-		/*Student st[] = new Student[students.length];
-		int count=0;
-		for(int i=0;i<students.length;i++) if(students[i].getBirthDate()getClass().getAge() == age) {
-			st[count] = students[i];
-			count++;
-		}*/
 		return null;
 	}
 
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		double d = 0;
-		for(int i=0;i<students.length;i++) {
-			
-			if(students[i].getAvgMark() > d) {
-				d = students[i].getAvgMark();
-			}
-		}
-		Student []st = new Student[students.length];
-		int count=0;
-		for(int i=0;i<students.length;i++) {
-			if(d == students[i].getAvgMark()) {st[count] = students[i]; count++;}
-		}
-		Student []ts = new Student[count];
-		for(int i=0;i<count;i++) {
-			ts[i] = st[i];
-		}
-		return ts;
+		return null;
 	}
 
 	@Override
 	public Student getNextStudent(Student student) {
-		//Correct
 		// Add your implementation here
-		if (student == null) throw new IllegalArgumentException();
-		else
-		for(int i=0;i<students.length;i++) {
-			if(student.getId() == students[i].getId()) return students[i+1];
-		}
 		return null;
 	}
 }
